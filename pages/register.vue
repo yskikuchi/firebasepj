@@ -21,13 +21,13 @@ export default {
   },
   methods:{
     register(){
-      if(!this.email||!this.password){
+      if(!this.email || !this.password){
         alert('メールアドレスまたはパスワードが入力されていません。')
         return
       }
       firebase
       .auth()
-      .createUserWithWEmailAndPassword(this.email, this.password)
+      .createUserWithEmailAndPassword(this.email, this.password)
       .then((data)=>{
         data.user.sendEmailVerificaion().then(()=>{
           this.$router.replace('/confirm')
@@ -52,4 +52,4 @@ export default {
     },
   },
 }
-</script>pt
+</script>
